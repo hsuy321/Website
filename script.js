@@ -20,7 +20,6 @@ function show() {
 let colorMode = true;
 let last = -1;
 
-// edit this list to change the colors
 const palette = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF"];
 
 const root = document.documentElement.style;
@@ -37,7 +36,6 @@ function applyColors() {
   root.setProperty("--hover", colorMode ? "#fff" : "#888");
 }
 
-// hover detection (color mode only, and not while the menu is open)
 let mx = -1, my = -1;
 
 function checkHover() {

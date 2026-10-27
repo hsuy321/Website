@@ -10,36 +10,57 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 html,
 body {
   height: 100%;
   overflow: hidden;
-  font-family: Helvetica, sans-serif;
-  font-size: 18px;
-  background: var(--bg);
-  color: var(--fg);
-  line-height: 1.2;
 }
 
-#name,
-#title {
-  position: fixed;
-  left: 0;
-  width: 100%;
+body {
+  display: grid;
+  grid-template-rows: 25vh 50vh 25vh;
+  align-items: center;
   text-align: center;
-  z-index: 3;
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  background: var(--bg);
+  color: var(--fg);
 }
 
 #name {
-  top: calc((100vh - var(--img)) / 4 - 0.6em);
+  grid-row: 1;
+  position: relative;
+  z-index: 3;
   pointer-events: none;
 }
 
+#stage {
+  grid-row: 2;
+  height: var(--img);
+  display: flex;
+  justify-content: center;
+  mix-blend-mode: multiply;
+}
+
 #title {
-  bottom: calc((100vh - var(--img)) / 4 - 0.6em);
+  grid-row: 3;
+  padding: 0 5vw;
   pointer-events: none;
+}
+
+#stage img,
+#stage video {
+  height: var(--img);
+  width: auto;
+  max-width: 80vw;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 #toggle,
@@ -50,6 +71,13 @@ body {
 
 #toggle {
   display: inline-block;
+}
+
+#menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
 }
 
 #menu a {
@@ -81,30 +109,11 @@ body {
   color: var(--hover);
 }
 
-#stage {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#stage img,
-#stage video {
-  height: var(--img);
-  width: auto;
-  max-width: 80vw;
-  object-fit: contain;
-}
-
 .arrow {
   position: fixed;
   top: 0;
-  height: 100%;
   width: 50%;
+  height: 100%;
   z-index: 1;
 }
 
@@ -128,22 +137,6 @@ body {
   pointer-events: none;
 }
 
-#stage {
-  mix-blend-mode: multiply;
-}
-
-* {
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-img,
-video {
-  -webkit-user-drag: none;
-  pointer-events: none;
-}
-
-/* color mode: hovered image loses the overlay, hovered caption turns white */
 .hover-img #stage {
   mix-blend-mode: normal;
 }
