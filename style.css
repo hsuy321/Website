@@ -44,6 +44,7 @@ body {
   background: #fff;
   color: #000;
   -webkit-tap-highlight-color: transparent;
+  text-wrap: balance;
 }
 
 #name {
@@ -64,7 +65,8 @@ body {
 #title {
   grid-row: 3;
   align-self: center;
-  padding: 0 var(--m);
+  justify-self: center;
+  max-width: min(50vw, calc(100vw - 2 * var(--m)));
   pointer-events: none;
 }
 
