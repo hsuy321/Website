@@ -1,13 +1,13 @@
 // edit this list: file path + title (videos work too)
 const slides = [
-  { src: "images/34.jpg",  title: "A set of accordion books documenting streetscapes along 34th Street through metadata" },
-  { src: "images/256.png", title: "A set of staple bound booklets categorizing photographs into ten metadata tags" },
-  { src: "videos/clip.mp4",     title: "Video example" }
+  { src: "images/34.jpg", title: "A set of accordion books documenting streetscapes along 34th Street through metadata." },
+  { src: "images/256.png", title: "A set of staple bound booklets categorizing photographs into ten metadata tags." },
+  { src: "videos/clip.mp4", title: "Video example" }
 ];
 
 const stage = document.getElementById("stage");
 const title = document.getElementById("title");
-const name  = document.getElementById("name");
+const name = document.getElementById("name");
 let i = 0;
 
 function show() {
