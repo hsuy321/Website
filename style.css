@@ -63,8 +63,8 @@ body {
 
 #title {
   grid-row: 3;
-  align-self: start;
-  padding: calc((var(--h) - var(--img)) / 4 - 0.6em) var(--m) 0;
+  align-self: center;
+  padding: 0 var(--m);
   pointer-events: none;
 }
 
