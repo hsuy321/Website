@@ -6,7 +6,7 @@ const slides = [
   { src: "images/ghosting.jpg", title: "Graphic identity for a book discussion on Ghosting: On Disappearance, a book analyzing the modern phenomenon of ghosting. (2/2)" },
   { src: "videos/machine.mp4", title: "Graphic identity for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence. (1/3)" },
   { src: "images/machine.jpg", title: "Graphic identity for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence. (2/3)" },
-  { src: "images/machine2.jpg", title: "Graphic identity for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence. (3/3)" },
+  { src: "images/machine-2.jpg", title: "Graphic identity for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence. (3/3)" }
 ];
 
 const stage = document.getElementById("stage");
