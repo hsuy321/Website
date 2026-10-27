@@ -1,6 +1,6 @@
 // edit this list: file path + title (videos work too)
 const slides = [
-  { src: "images/34.jpg", title: "Ten accordion books documenting streetscapes along 34th Street through Google Maps busniess categories." },
+  { src: "images/34.jpg", title: "Ten accordion books documenting streetscapes along 34th Street using Google Maps busniess categories." },
   { src: "images/256.png", title: "Ten staple bound booklets categorizing photographs into metadata tags." },
 ];
 

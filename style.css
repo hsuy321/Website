@@ -1,5 +1,6 @@
 :root {
   --img: 50vh;
+  --blur: 12px;
 }
 
 * {
@@ -112,4 +113,19 @@ body {
 #next {
   right: 0;
   cursor: e-resize;
+}
+
+#stage,
+#title {
+  transition: filter 0.2s;
+}
+
+#name.open~#stage,
+#name.open~#title {
+  filter: blur(var(--blur));
+}
+
+#name.open~#stage,
+#name.open~.arrow {
+  pointer-events: none;
 }
