@@ -3,7 +3,7 @@
   --blur: 12px;
   --bg: #fff;
   --fg: #000;
-  --hover: #888;
+  --hover: #fff;
 }
 
 * {
@@ -16,7 +16,7 @@ html,
 body {
   height: 100%;
   overflow: hidden;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 18px;
   background: var(--bg);
   color: var(--fg);

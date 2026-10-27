@@ -32,13 +32,9 @@ function applyColors() {
     do { k = Math.floor(Math.random() * palette.length); } while (k === last);
     last = k;
     bg = palette[k];
-    // hover color = the opposite of the background
-    const n = parseInt(bg.slice(1), 16);
-    root.setProperty("--hover", `rgb(${255 - (n >> 16)}, ${255 - ((n >> 8) & 255)}, ${255 - (n & 255)})`);
-  } else {
-    root.setProperty("--hover", "#888");
   }
   root.setProperty("--bg", bg);
+  root.setProperty("--hover", colorMode ? "#fff" : "#888");
 }
 
 function go(n) {
