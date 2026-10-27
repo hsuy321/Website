@@ -2,7 +2,6 @@
 const slides = [
   { src: "images/34.jpg", title: "A set of accordion books documenting streetscapes along 34th Street through metadata." },
   { src: "images/256.png", title: "A set of staple bound booklets categorizing photographs into ten metadata tags." },
-  { src: "videos/clip.mp4", title: "Video example" }
 ];
 
 const stage = document.getElementById("stage");
