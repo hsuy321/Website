@@ -1,9 +1,7 @@
 :root {
   --img: 50vh;
+  /* image height: change this to resize */
   --blur: 12px;
-  --bg: #fff;
-  --fg: #000;
-  --hover: #fff;
 }
 
 * {
@@ -20,16 +18,17 @@ body {
   overflow: hidden;
 }
 
+/* text / image / text: the image row is fixed, the text rows split the rest */
 body {
   display: grid;
-  grid-template-rows: 25vh 50vh 25vh;
+  grid-template-rows: minmax(0, 1fr) var(--img) minmax(0, 1fr);
   align-items: center;
   text-align: center;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
   line-height: 1.2;
-  background: var(--bg);
-  color: var(--fg);
+  background: #fff;
+  color: #000;
 }
 
 #name {
@@ -44,7 +43,6 @@ body {
   height: var(--img);
   display: flex;
   justify-content: center;
-  mix-blend-mode: multiply;
 }
 
 #title {
@@ -63,6 +61,7 @@ body {
   -webkit-user-drag: none;
 }
 
+/* menu */
 #toggle,
 #menu a {
   pointer-events: auto;
@@ -87,14 +86,6 @@ body {
   text-decoration: none;
 }
 
-#menu a.plain {
-  cursor: default;
-}
-
-#menu a.plain:hover {
-  color: inherit;
-}
-
 #menu,
 #full {
   display: none;
@@ -114,9 +105,19 @@ body {
 
 #toggle:hover,
 #menu a:hover {
-  color: var(--hover);
+  color: #888;
 }
 
+/* menu text that isn't a button: no hover color, no pointer */
+#menu a.plain {
+  cursor: default;
+}
+
+#menu a.plain:hover {
+  color: inherit;
+}
+
+/* left and right click areas */
 .arrow {
   position: fixed;
   top: 0;
@@ -135,6 +136,7 @@ body {
   cursor: e-resize;
 }
 
+/* menu open: blur and lock the background */
 #name.open~#stage,
 #name.open~#title {
   filter: blur(var(--blur));
@@ -145,14 +147,7 @@ body {
   pointer-events: none;
 }
 
-.hover-img #stage {
-  mix-blend-mode: normal;
-}
-
-.hover-cap #title {
-  color: #fff;
-}
-
+/* heading for search engines, hidden from view */
 .hidden {
   position: absolute;
   width: 1px;

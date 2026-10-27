@@ -15,61 +15,17 @@ function show() {
   stage.innerHTML = isVideo
     ? `<video src="${s.src}" autoplay muted loop playsinline></video>`
     : `<img src="${s.src}" alt="${s.title}">`;
-  title.innerHTML = `<span>${s.title}</span>`;
+  title.textContent = s.title;
 }
-let colorMode = false;
-let last = -1;
-
-const palette = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF"];
-
-const root = document.documentElement.style;
-
-function applyColors() {
-  let bg = "#fff";
-  if (colorMode) {
-    let k;
-    do { k = Math.floor(Math.random() * palette.length); } while (k === last);
-    last = k;
-    bg = palette[k];
-  }
-  root.setProperty("--bg", bg);
-  root.setProperty("--hover", colorMode ? "#fff" : "#888");
-}
-
-let mx = -1, my = -1;
-
-function checkHover() {
-  const body = document.body;
-  if (!colorMode || name.classList.contains("open")) {
-    body.classList.remove("hover-img", "hover-cap");
-    return;
-  }
-  const over = el => {
-    if (!el) return false;
-    const r = el.getBoundingClientRect();
-    return mx >= r.left && mx <= r.right && my >= r.top && my <= r.bottom;
-  };
-  body.classList.toggle("hover-img", over(stage.firstElementChild));
-  body.classList.toggle("hover-cap", over(title.firstElementChild));
-}
-
-document.addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; checkHover(); });
 
 function go(n) {
   i = (i + n + slides.length) % slides.length;
   show();
-  applyColors();
-  checkHover();
 }
 
-document.getElementById("prev").onclick = () => { name.classList.remove("open"); go(-1); };
-document.getElementById("next").onclick = () => { name.classList.remove("open"); go(1); };
+document.getElementById("prev").onclick = () => go(-1);
+document.getElementById("next").onclick = () => go(1);
 document.getElementById("toggle").onclick = () => name.classList.toggle("open");
-
-document.getElementById("contrast").onclick = () => {
-  colorMode = !colorMode;
-  applyColors();
-};
 
 // click anywhere outside the menu text to close it
 document.addEventListener("click", e => {
@@ -84,4 +40,11 @@ document.addEventListener("keydown", e => {
 });
 
 show();
-applyColors();
+
+// preload every image so navigating feels instant
+slides.forEach(s => {
+  if (!/\.(mp4|webm|mov)$/i.test(s.src)) {
+    const img = new Image();
+    img.src = s.src;
+  }
+});
