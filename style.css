@@ -19,7 +19,6 @@ body {
   line-height: 1.2;
 }
 
-/* name on top, title on bottom: same offset from the edge */
 #name,
 #title {
   position: fixed;
@@ -78,7 +77,6 @@ body {
   color: #999;
 }
 
-/* media stays between the top and bottom text */
 #stage {
   position: fixed;
   top: 0;
@@ -98,7 +96,6 @@ body {
   object-fit: contain;
 }
 
-/* two invisible halves cover the whole screen */
 .arrow {
   position: fixed;
   top: 0;
