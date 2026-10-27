@@ -23,6 +23,8 @@ let last = -1;
 // edit this list to change the colors
 const palette = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF"];
 
+const root = document.documentElement.style;
+
 function applyColors() {
   let bg = "#fff";
   if (colorMode) {
@@ -30,9 +32,15 @@ function applyColors() {
     do { k = Math.floor(Math.random() * palette.length); } while (k === last);
     last = k;
     bg = palette[k];
+    // hover color = the opposite of the background
+    const n = parseInt(bg.slice(1), 16);
+    root.setProperty("--hover", `rgb(${255 - (n >> 16)}, ${255 - ((n >> 8) & 255)}, ${255 - (n & 255)})`);
+  } else {
+    root.setProperty("--hover", "#888");
   }
-  document.documentElement.style.setProperty("--bg", bg);
+  root.setProperty("--bg", bg);
 }
+
 function go(n) {
   i = (i + n + slides.length) % slides.length;
   show();
@@ -47,6 +55,11 @@ document.getElementById("contrast").onclick = () => {
   colorMode = !colorMode;
   applyColors();
 };
+
+// click anywhere outside the menu text to close it
+document.addEventListener("click", e => {
+  if (!e.target.closest("#toggle, #menu")) name.classList.remove("open");
+});
 
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") name.classList.remove("open");

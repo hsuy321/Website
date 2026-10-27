@@ -3,6 +3,7 @@
   --blur: 12px;
   --bg: #fff;
   --fg: #000;
+  --hover: #888;
 }
 
 * {
@@ -77,7 +78,7 @@ body {
 
 #toggle:hover,
 #menu a:hover {
-  opacity: 0.5;
+  color: var(--hover);
 }
 
 #stage {
@@ -129,4 +130,15 @@ body {
 
 #stage {
   mix-blend-mode: multiply;
+}
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+img,
+video {
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
