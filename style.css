@@ -153,10 +153,6 @@ body {
   color: #fff;
 }
 
-#contrast {
-  display: none;
-}
-
 .hidden {
   position: absolute;
   width: 1px;
