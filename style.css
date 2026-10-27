@@ -1,6 +1,8 @@
 :root {
   --img: 50vh;
   --blur: 12px;
+  --bg: #fff;
+  --fg: #000;
 }
 
 * {
@@ -15,8 +17,8 @@ body {
   overflow: hidden;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 18px;
-  background: #fff;
-  color: #000;
+  background: var(--bg);
+  color: var(--fg);
   line-height: 1.2;
 }
 
@@ -75,7 +77,7 @@ body {
 
 #toggle:hover,
 #menu a:hover {
-  color: #999;
+  opacity: 0.5;
 }
 
 #stage {
@@ -123,4 +125,8 @@ body {
 #name.open~#stage,
 #name.open~.arrow {
   pointer-events: none;
+}
+
+#stage {
+  mix-blend-mode: multiply;
 }
