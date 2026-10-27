@@ -7,8 +7,16 @@
 }
 
 :root {
-  --img: 50vh;
-  --blur: 1000px;
+  --h: 100vh;
+  --img: calc(var(--h) * 0.5);
+  --m: max(24px, 5vw);
+  --blur: 1200px;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --h: 100dvh;
+  }
 }
 
 * {
@@ -21,7 +29,7 @@
 
 html,
 body {
-  height: 100%;
+  height: var(--h);
   overflow: hidden;
 }
 
@@ -35,13 +43,14 @@ body {
   line-height: 1.2;
   background: #fff;
   color: #000;
-  text-wrap: balance;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #name {
   grid-row: 1;
   position: relative;
   z-index: 3;
+  padding: 0 var(--m);
   pointer-events: none;
 }
 
@@ -55,9 +64,7 @@ body {
 #title {
   grid-row: 3;
   align-self: start;
-  width: 100vh;
-  margin: 0 auto;
-  padding-top: calc(((100vh - var(--img)) / 2 - 1.2em) / 2);
+  padding: calc((var(--h) - var(--img)) / 4 - 0.6em) var(--m) 0;
   pointer-events: none;
 }
 
@@ -65,7 +72,7 @@ body {
 #stage video {
   height: var(--img);
   width: auto;
-  max-width: 80vw;
+  max-width: calc(100vw - 2 * var(--m));
   object-fit: contain;
   pointer-events: none;
   -webkit-user-drag: none;
@@ -118,7 +125,6 @@ body {
   color: #888;
 }
 
-/* menu text that isn't a button: no hover color, no pointer */
 #menu a.plain {
   cursor: default;
 }
@@ -127,7 +133,6 @@ body {
   color: inherit;
 }
 
-/* left and right click areas */
 .arrow {
   position: fixed;
   top: 0;
@@ -146,7 +151,6 @@ body {
   cursor: e-resize;
 }
 
-/* menu open: blur and lock the background */
 #name.open~#stage,
 #name.open~#title {
   filter: blur(var(--blur));
@@ -157,7 +161,6 @@ body {
   pointer-events: none;
 }
 
-/* heading for search engines, hidden from view */
 .hidden {
   position: absolute;
   width: 1px;
@@ -165,4 +168,10 @@ body {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
 }

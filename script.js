@@ -8,7 +8,7 @@ const slides = [
   { src: "images/machine.jpg", title: "Graphic identity for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence. (2/3)" },
   { src: "images/machine-2.jpg", title: "Graphic identity for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence. (3/3)" },
   { src: "videos/demo.mp4", title: "Graphic identity for Parsons MPS Communication Design Demo Day event. (1/2)" },
-  { src: "images/demo-2.mp4", title: "Graphic identity for Parsons MPS Communication Design Demo Day event. (2/2)" }
+  { src: "videos/demo-2.mp4", title: "Graphic identity for Parsons MPS Communication Design Demo Day event. (2/2)" }
 ];
 
 const stage = document.getElementById("stage");
