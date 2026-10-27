@@ -87,6 +87,14 @@ body {
   text-decoration: none;
 }
 
+#menu a.plain {
+  cursor: default;
+}
+
+#menu a.plain:hover {
+  color: inherit;
+}
+
 #menu,
 #full {
   display: none;
