@@ -142,3 +142,12 @@ video {
   -webkit-user-drag: none;
   pointer-events: none;
 }
+
+/* color mode: hovered image loses the overlay, hovered caption turns white */
+.hover-img #stage {
+  mix-blend-mode: normal;
+}
+
+.hover-cap #title {
+  color: #fff;
+}
