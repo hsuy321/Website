@@ -17,7 +17,7 @@ function show() {
     : `<img src="${s.src}" alt="${s.title}">`;
   title.innerHTML = `<span>${s.title}</span>`;
 }
-let colorMode = true;
+let colorMode = false;
 let last = -1;
 
 const palette = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF"];
