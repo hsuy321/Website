@@ -115,11 +115,6 @@ body {
   cursor: e-resize;
 }
 
-#stage,
-#title {
-  transition: filter 0.2s;
-}
-
 #name.open~#stage,
 #name.open~#title {
   filter: blur(var(--blur));
