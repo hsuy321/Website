@@ -1,7 +1,15 @@
+@font-face {
+  font-family: 'Standard';
+  src: url('fonts/standard-book-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --img: 50vh;
   /* image height: change this to resize */
-  --blur: 12px;
+  --blur: 100px;
 }
 
 * {
@@ -18,14 +26,13 @@ body {
   overflow: hidden;
 }
 
-/* text / image / text: the image row is fixed, the text rows split the rest */
 body {
   display: grid;
   grid-template-rows: minmax(0, 1fr) var(--img) minmax(0, 1fr);
   align-items: center;
   text-align: center;
-  font-family: Helvetica, sans-serif;
-  font-size: 18px;
+  font-family: "Standard", sans-serif;
+  font-size: 21px;
   line-height: 1.2;
   background: #fff;
   color: #000;
@@ -47,7 +54,10 @@ body {
 
 #title {
   grid-row: 3;
-  padding: 0 5vw;
+  align-self: start;
+  width: 60vw;
+  margin: 0 auto;
+  padding-top: calc(((100vh - var(--img)) / 2 - 1.2em) / 2);
   pointer-events: none;
 }
 
