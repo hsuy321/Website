@@ -195,7 +195,6 @@ body {
   display: none;
 }
 
-/* touch screens: no cursor, so no label */
 @media (hover: none) {
   #label {
     display: none !important;
@@ -203,6 +202,21 @@ body {
 
   .arrow {
     cursor: auto;
+  }
+
+  #prevProject,
+  #nextProject {
+    display: none;
+  }
+
+  #prevImage {
+    left: 0;
+    width: 50%;
+  }
+
+  #nextImage {
+    left: 50%;
+    width: 50%;
   }
 }
 
