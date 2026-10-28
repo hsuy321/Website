@@ -9,6 +9,7 @@ const slides = [
   { project: "Film Screening", src: "images/machine-2.jpg", title: "Poster for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence." },
   { project: "Book Discussion", src: "videos/ghosting.mp4", title: "Motion graphic for a book discussion on Ghosting: On Disappearance, a book analyzing the modern phenomenon of ghosting." },
   { project: "Book Discussion", src: "images/ghosting.jpg", title: "Poster for a book discussion on Ghosting: On Disappearance, a book analyzing the modern phenomenon of ghosting." },
+  { project: "Direction", src: "images/direction.png", title: "Typeface based on Japanese street signs." }
 ];
 
 // background and text color for each project (names must match the list above)
@@ -16,7 +17,8 @@ const themes = {
   "Thesis": { bg: "#ffffff", fg: "#000000" },
   "Demo Day": { bg: "#FFD700", fg: "#000000" },
   "Film Screening": { bg: "#FFFF00", fg: "#000000" },
-  "Book Discussion": { bg: "#000000", fg: "#ffffff" }
+  "Book Discussion": { bg: "#000000", fg: "#ffffff" },
+  "Direction": { bg: "#ff0000", fg: "#ffffff" }
 };
 
 const stage = document.getElementById("stage");
