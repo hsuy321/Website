@@ -136,18 +136,20 @@ body {
   display: none;
 }
 
-/* hover fades the text, so it works on any background color */
-#toggle:hover,
-#menu a:hover {
-  opacity: 0.5;
-}
+@media (hover: hover) {
 
-#menu a.plain {
-  cursor: default;
-}
+  #toggle:hover,
+  #menu a:hover {
+    opacity: 0.5;
+  }
 
-#menu a.plain:hover {
-  opacity: 1;
+  #menu a.plain {
+    cursor: default;
+  }
+
+  #menu a.plain:hover {
+    opacity: 1;
+  }
 }
 
 /* four click columns, 25% each */
