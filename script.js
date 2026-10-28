@@ -14,7 +14,7 @@ const slides = [
 // background and text color for each project (names must match the list above)
 const themes = {
   "Thesis": { bg: "#ffffff", fg: "#000000" },
-  "Demo Day": { bg: "#d9d9d9", fg: "#000000" },
+  "Demo Day": { bg: "#FFD700", fg: "#000000" },
   "Film Screening": { bg: "#FFFF00", fg: "#000000" },
   "Book Discussion": { bg: "#000000", fg: "#ffffff" }
 };
