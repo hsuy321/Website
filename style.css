@@ -11,6 +11,8 @@
   --img: calc(var(--h) * 0.5);
   --m: max(24px, 5vw);
   --blur: 1200px;
+  --bg: #ffffff;
+  --fg: #000000;
 }
 
 @supports (height: 100dvh) {
@@ -41,10 +43,22 @@ body {
   font-family: "Standard", sans-serif;
   font-size: 21px;
   line-height: 1.2;
-  background: #fff;
-  color: #000;
+  background: var(--bg);
+  color: var(--fg);
   -webkit-tap-highlight-color: transparent;
   text-wrap: balance;
+}
+
+#project {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 0 var(--m);
+}
+
+#name.open #project {
+  display: none;
 }
 
 #name {
@@ -122,9 +136,10 @@ body {
   display: none;
 }
 
+/* hover fades the text, so it works on any background color */
 #toggle:hover,
 #menu a:hover {
-  color: #888;
+  opacity: 0.5;
 }
 
 #menu a.plain {
@@ -132,25 +147,63 @@ body {
 }
 
 #menu a.plain:hover {
-  color: inherit;
+  opacity: 1;
 }
 
+/* four click columns, 25% each */
 .arrow {
   position: fixed;
   top: 0;
-  width: 50%;
+  width: 25%;
   height: 100%;
   z-index: 1;
+  cursor: none;
 }
 
-#prev {
+#prevProject {
   left: 0;
-  cursor: w-resize;
 }
 
-#next {
-  right: 0;
-  cursor: e-resize;
+#prevImage {
+  left: 25%;
+}
+
+#nextImage {
+  left: 50%;
+}
+
+#nextProject {
+  left: 75%;
+}
+
+/* text that follows the mouse, same font and size as the page */
+#label {
+  display: none;
+  position: fixed;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  color: var(--fg);
+}
+
+#label.on {
+  display: block;
+}
+
+#name.open~#label {
+  display: none;
+}
+
+/* touch screens: no cursor, so no label */
+@media (hover: none) {
+  #label {
+    display: none !important;
+  }
+
+  .arrow {
+    cursor: auto;
+  }
 }
 
 #name.open~#stage,
