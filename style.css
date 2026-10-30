@@ -13,6 +13,10 @@
   --blur: 1200px;
   --bg: #ffffff;
   --fg: #000000;
+  --grad-w: 50%;
+  --grad-time: 0.5s;
+  --prev-bg: #ffffff;
+  --next-bg: #ffffff;
 }
 
 @supports (height: 100dvh) {
@@ -152,7 +156,6 @@ body {
   }
 }
 
-/* four click columns, 25% each */
 .arrow {
   position: fixed;
   top: 0;
@@ -160,6 +163,39 @@ body {
   height: 100%;
   z-index: 1;
   cursor: none;
+}
+
+.grad {
+  display: none;
+}
+
+@media (hover: hover) {
+  .grad {
+    display: block;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: var(--grad-w);
+    opacity: 0;
+    transition: opacity var(--grad-time);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  #gradPrev {
+    left: 0;
+    background: linear-gradient(to left, transparent, var(--prev-bg));
+  }
+
+  #gradNext {
+    right: 0;
+    background: linear-gradient(to right, transparent, var(--next-bg));
+  }
+
+  #prevProject:hover~#gradPrev,
+  #nextProject:hover~#gradNext {
+    opacity: 1;
+  }
 }
 
 #prevProject {
@@ -178,7 +214,6 @@ body {
   left: 75%;
 }
 
-/* text that follows the mouse, same font and size as the page */
 #label {
   display: none;
   position: fixed;
@@ -187,6 +222,7 @@ body {
   white-space: nowrap;
   pointer-events: none;
   color: var(--fg);
+  transition: color var(--grad-time);
 }
 
 #label.on {
