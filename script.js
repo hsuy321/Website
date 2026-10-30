@@ -41,12 +41,6 @@ function show() {
   const t = themes[s.project] || { bg: "#ffffff", fg: "#000000" };
   document.documentElement.style.setProperty("--bg", t.bg);
   document.documentElement.style.setProperty("--fg", t.fg);
-  // colors for the prev/next project gradients
-  const cur = starts.filter(k => k <= i).length - 1;
-  const bgOf = q => (themes[slides[starts[(q + starts.length) % starts.length]].project] || { bg: "#ffffff" }).bg;
-  document.documentElement.style.setProperty("--prev-bg", bgOf(cur - 1));
-  document.documentElement.style.setProperty("--next-bg", bgOf(cur + 1));
-  updateLabel();
 }
 
 // one image forward or back (crosses into the next project at the edges)
@@ -81,12 +75,6 @@ function updateLabel() {
   if (col < 0) return;
   label.textContent = ["Prev Project", "Prev Image", "Next Image", "Next Project"][col];
 
-  // project columns take the color of the project they lead to
-  const np = starts.length;
-  const cur = starts.filter(k => k <= i).length - 1;
-  const q = col === 0 ? cur - 1 : col === 3 ? cur + 1 : cur;
-  const t = themes[slides[starts[(q + np) % np]].project] || { fg: "#000000" };
-  label.style.color = t.fg;
 }
 
 document.addEventListener("mousemove", e => {
