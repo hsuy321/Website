@@ -43,57 +43,31 @@ function show() {
   document.documentElement.style.setProperty("--fg", t.fg);
 }
 
-// one image forward or back (crosses into the next project at the edges)
+// one image forward or back
 function go(n) {
   i = (i + n + slides.length) % slides.length;
   show();
 }
 
-// index of the first slide of each project
-const starts = slides
-  .map((s, k) => (k === 0 || s.project !== slides[k - 1].project ? k : -1))
-  .filter(k => k >= 0);
-
-// jump to the first slide of the next or previous project
-function goProject(dir) {
-  let p = starts.filter(k => k <= i).length - 1;   // current project
-  p = (p + dir + starts.length) % starts.length;
-  i = starts[p];
-  show();
-}
-
-document.getElementById("prevProject").onclick = () => goProject(-1);
-document.getElementById("prevImage").onclick = () => go(-1);
-document.getElementById("nextImage").onclick = () => go(1);
-document.getElementById("nextProject").onclick = () => goProject(1);
+document.getElementById("prev").onclick = () => go(-1);
+document.getElementById("next").onclick = () => go(1);
 document.getElementById("toggle").onclick = () => name.classList.toggle("open");
 
 // cursor label
-let col = -1;
-
-function updateLabel() {
-  if (col < 0) return;
-  label.textContent = ["Prev Project", "Prev Image", "Next Image", "Next Project"][col];
-
-}
+const labels = ["Prev Image", "Next Image"];
 
 document.addEventListener("mousemove", e => {
   if (e.target.closest("#toggle")) {
-    col = -1;
     label.classList.remove("on");
     return;
   }
-  col = Math.min(3, Math.floor(e.clientX / (window.innerWidth / 4)));
-  updateLabel();
+  label.textContent = labels[e.clientX < window.innerWidth / 2 ? 0 : 1];
   label.style.left = e.clientX + "px";
   label.style.top = e.clientY + "px";
   label.classList.add("on");
 });
 
-document.addEventListener("mouseleave", () => {
-  col = -1;
-  label.classList.remove("on");
-});
+document.addEventListener("mouseleave", () => label.classList.remove("on"));
 
 // click anywhere outside the menu text to close it
 document.addEventListener("click", e => {

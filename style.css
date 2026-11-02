@@ -12,7 +12,7 @@
   --m: max(24px, 5vw);
   --blur: 1200px;
   --bg: #ffffff;
-  --fg: #ffffff;
+  --fg: #000000;
 }
 
 @supports (height: 100dvh) {
@@ -152,31 +152,25 @@ body {
   }
 }
 
+/* two click halves, 50% each */
 .arrow {
   position: fixed;
   top: 0;
-  width: 25%;
+  width: 50%;
   height: 100%;
   z-index: 1;
   cursor: none;
 }
 
-#prevProject {
+#prev {
   left: 0;
 }
 
-#prevImage {
-  left: 25%;
-}
-
-#nextImage {
+#next {
   left: 50%;
 }
 
-#nextProject {
-  left: 75%;
-}
-
+/* text that follows the mouse, same font and size as the page */
 #label {
   display: none;
   position: fixed;
@@ -184,8 +178,6 @@ body {
   transform: translate(-50%, -50%);
   white-space: nowrap;
   pointer-events: none;
-  color: var(--fg);
-  transition: color var(--grad-time);
 }
 
 #label.on {
@@ -196,6 +188,7 @@ body {
   display: none;
 }
 
+/* touch screens: no cursor, so no label */
 @media (hover: none) {
   #label {
     display: none !important;
@@ -203,21 +196,6 @@ body {
 
   .arrow {
     cursor: auto;
-  }
-
-  #prevProject,
-  #nextProject {
-    display: none;
-  }
-
-  #prevImage {
-    left: 0;
-    width: 50%;
-  }
-
-  #nextImage {
-    left: 50%;
-    width: 50%;
   }
 }
 
