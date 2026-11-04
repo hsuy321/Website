@@ -1,6 +1,6 @@
 // edit this list: project name (for grouping only) + file path + title
 const slides = [
-  { project: "Thesis", src: "images/34.jpg", title: "Fourteen accordion books documenting streetscapes along 34th Street using Google Maps busniess categories." },
+  { project: "Thesis", src: "images/34.png", title: "Fourteen accordion books documenting streetscapes along 34th Street using Google Maps busniess categories." },
   { project: "Thesis", src: "images/256.png", title: "Ten staple bound booklets categorizing personal photographic explorations into general metadata tags." },
   { project: "Demo Day", src: "videos/demo.mp4", title: "Motion graphic for Parsons MPS Communication Design Demo Day event, in person." },
   { project: "Demo Day", src: "videos/demo-2.mp4", title: "Motion graphic for Parsons MPS Communication Design Demo Day event, on social media." },
