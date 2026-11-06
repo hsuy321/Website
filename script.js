@@ -1,8 +1,11 @@
 // edit this list: project name (for grouping only) + file path + title
 const slides = [
   { project: "Thesis", src: "images/34.png", title: "Fourteen accordion books documenting streetscapes along 34th Street using Google Maps busniess categories." },
+  { project: "Thesis", src: "images/34-1.png", title: "Box." },
+  { project: "Thesis", src: "images/34-2.png", title: "Books." },
   { project: "Thesis", src: "images/256.png", title: "Ten staple bound booklets categorizing personal photographic explorations into general metadata tags." },
-  { project: "Demo Day", src: "videos/demo.mp4", title: "Motion graphic for Parsons MPS Communication Design Demo Day event, in person." },
+  { project: "Thesis", src: "images/256-2.png", title: "Fence, Grass, Object, Opening, Pavement, Pole, Sign, Structure, Tree, Vehicle." },
+  { project: "Thesis", src: "videos/thesis.mp4", title: "An online tool that generates legible signs from existing signs. <a href='https://legible-sign-generator.hsuworks.com/' target='_blank'>(Link)</a>" }, { project: "Demo Day", src: "videos/demo.mp4", title: "Motion graphic for Parsons MPS Communication Design Demo Day event, in person." },
   { project: "Demo Day", src: "videos/demo-2.mp4", title: "Motion graphic for Parsons MPS Communication Design Demo Day event, on social media." },
   { project: "Film Screening", src: "videos/machine.mp4", title: "Motion graphic for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence." },
   { project: "Film Screening", src: "images/machine.jpg", title: "Poster for a film screening of Ghost in the Machine, a film discussing the buried histories behind artificial intelligence." },
@@ -33,9 +36,7 @@ function show() {
   const isVideo = /\.(mp4|webm|mov)$/i.test(s.src);
   stage.innerHTML = isVideo
     ? `<video src="${s.src}" autoplay muted loop playsinline></video>`
-    : `<img src="${s.src}" alt="${s.title}">`;
-  title.textContent = s.title;
-  project.textContent = s.project;
+    : `<img src="${s.src}" alt="${s.title.replace(/<[^>]+>/g, "")}">`; title.innerHTML = s.title; project.textContent = s.project;
 
   // apply this project's colors
   const t = themes[s.project] || { bg: "#ffffff", fg: "#000000" };
@@ -57,7 +58,7 @@ document.getElementById("toggle").onclick = () => name.classList.toggle("open");
 const labels = ["Prev Image", "Next Image"];
 
 document.addEventListener("mousemove", e => {
-  if (e.target.closest("#toggle")) {
+  if (e.target.closest("#toggle, #title a")) {
     label.classList.remove("on");
     return;
   }
